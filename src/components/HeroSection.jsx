@@ -76,7 +76,7 @@ const InfiniteTypewriter = ({
     <span className={`${className}`}>
       {displayedText}
       <span
-        className={`inline-block w-0.5 h-6 md:h-8 lg:h-10 bg-yellow-600 ml-1 ${showCursor ? "opacity-100" : "opacity-0"}`}
+        className={`inline-block w-0.5 h-4 sm:h-5 md:h-6 lg:h-8 xl:h-10 bg-yellow-600 ml-1 ${showCursor ? "opacity-100" : "opacity-0"}`}
         style={{ transition: "opacity 0.1s" }}
       />
     </span>
@@ -100,7 +100,7 @@ const ModernImageBorder = ({ children, className = "" }) => {
           }}
         ></div>
         {/* Content area with equal padding */}
-        <div className="relative m-6">
+        <div className="relative m-3 sm:m-4 md:m-6">
           {/* Inner white border */}
           <div className="relative bg-white rounded-xl shadow-md overflow-hidden">
             <div
@@ -109,7 +109,7 @@ const ModernImageBorder = ({ children, className = "" }) => {
                 clipPath: "polygon(0 0, 100% 3px, 97% 100%, 3px 100%)",
               }}
             ></div>
-            <div className="relative m-3">
+            <div className="relative m-2 sm:m-3">
               {/* Content container */}
               <div className="relative bg-white rounded-lg overflow-hidden shadow-sm">
                 {/* Subtle inner shadow for depth */}
@@ -126,15 +126,11 @@ const ModernImageBorder = ({ children, className = "" }) => {
 
 const HeroSection = () => {
   const handleGrandmasterClick = () => {
-    // Add your click handler logic here
     console.log("Grandmaster section clicked!");
-    // Example: navigate to about page, show modal, etc.
   };
 
   const handleDemoClick = () => {
-    // Add your demo booking logic here
     console.log("Demo class booking clicked!");
-    // Example: open booking form, navigate to booking page, etc.
   };
 
   return (
@@ -197,59 +193,17 @@ const HeroSection = () => {
         }
       `}</style>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          {/* Text content */}
-          <div className="relative z-10 animate-slide-left">
-            <AnimatedDiv delay={0.2}>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-                <span className="block whitespace-nowrap">
-                  Empowering young minds
-                </span>
-                <span className="block whitespace-nowrap">through the,</span>
-                <InfiniteTypewriter
-                  texts={[
-                    "art of chess !",
-                    "game of strategy !",
-                    "joy of learning !",
-                  ]}
-                  delay={0.5}
-                  speed={80}
-                  className="text-yellow-600"
-                />
-              </h1>
-            </AnimatedDiv>
-
-            <AnimatedDiv delay={0.4} className="space-y-2 mb-8">
-              <p className="text-lg md:text-xl text-gray-700">
-                Welcome to a place where children don't just learn chess —{" "}
-                Whether your child is a curious beginner or an aspiring
-                tournament player, we guide them every step of the way with
-                passion and purpose.
-                <span className="font-semibold"> They learn to think.</span>
-              </p>
-            </AnimatedDiv>
-
-            <AnimatedDiv delay={0.6}>
-              <button
-                onClick={handleDemoClick}
-                className="px-8 py-4 bg-yellow-600 hover:bg-yellow-700 text-white font-bold rounded-full text-lg md:text-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl animate-pulse-slow"
-              >
-                Book a Demo Class
-              </button>
-            </AnimatedDiv>
-          </div>
-
-          {/* Image content with modern border - now with entrance animation */}
-          <div className="relative w-full md:w-4/5 lg:w-3/4 justify-self-end animate-slide-right">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-24">
+        <div className="flex flex-col md:grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center">
+          {/* Image content with modern border - shows first on mobile */}
+          <div className="relative w-full md:w-4/5 lg:w-3/4 mx-auto md:mx-0 md:justify-self-end animate-slide-right order-1 md:order-2 mb-8 md:mb-0">
             <ModernImageBorder className="hover:scale-[1.02] transition-all duration-500">
-              <div className="relative w-full h-72 md:h-80 lg:h-96 overflow-hidden">
+              <div className="relative w-full h-64 sm:h-80 md:h-72 lg:h-80 xl:h-96 overflow-hidden">
                 <img
                   src="/young-kid-.jpg"
                   alt="Chess Master Academy - Grandmaster Srinath Narayanan teaching young chess players"
                   className="w-full h-full object-cover"
                   onError={(e) => {
-                    // Fallback to placeholder if image doesn't load
                     e.target.style.display = "none";
                     e.target.nextSibling.style.display = "flex";
                   }}
@@ -259,62 +213,97 @@ const HeroSection = () => {
                   className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-yellow-100 to-yellow-200"
                   style={{ display: "none" }}
                 >
-                  <div className="text-center p-6">
-                    <div className="text-7xl md:text-8xl drop-shadow-2xl text-yellow-600 transform hover:scale-110 transition-transform duration-300">
+                  <div className="text-center p-4 sm:p-6">
+                    <div className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl drop-shadow-2xl text-yellow-600 transform hover:scale-110 transition-transform duration-300">
                       ♔
                     </div>
-                    <p className="mt-3 text-gray-700 font-medium tracking-wide text-sm md:text-base">
+                    <p className="mt-3 text-gray-700 font-medium tracking-wide text-xs sm:text-sm md:text-base">
                       Chess Master Academy
                     </p>
                   </div>
-                  <div className="absolute top-6 left-6 text-2xl text-black/10 transform hover:text-black/30 hover:scale-125 transition-all duration-300">
+                  <div className="absolute top-3 sm:top-4 md:top-6 left-3 sm:left-4 md:left-6 text-lg sm:text-xl md:text-2xl text-black/10 transform hover:text-black/30 hover:scale-125 transition-all duration-300">
                     ♖
                   </div>
-                  <div className="absolute bottom-6 right-6 text-2xl text-black/10 transform hover:text-black/30 hover:scale-125 transition-all duration-300">
+                  <div className="absolute bottom-3 sm:bottom-4 md:bottom-6 right-3 sm:right-4 md:right-6 text-lg sm:text-xl md:text-2xl text-black/10 transform hover:text-black/30 hover:scale-125 transition-all duration-300">
                     ♝
                   </div>
                 </div>
               </div>
             </ModernImageBorder>
 
-            {/* Grandmaster highlight box overlapping bottom - now clickable */}
+            {/* Grandmaster highlight box overlapping bottom */}
             <AnimatedDiv
               delay={0.8}
-              className="absolute -bottom-16 left-4 right-4 z-10"
+              className="absolute -bottom-10 sm:-bottom-12 md:-bottom-16 left-1 sm:left-2 md:left-4 right-1 sm:right-2 md:right-4 z-10"
             >
               <button
                 onClick={handleGrandmasterClick}
-                className="w-full relative bg-[#d18601] rounded-xl p-1 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 hover:from-yellow-600 hover:to-orange-600 group cursor-pointer"
+                className="w-full relative bg-[#d18601] rounded-lg sm:rounded-xl p-1 shadow-lg sm:shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 hover:from-yellow-600 hover:to-orange-600 group cursor-pointer"
               >
-                <div className="text-center py-2">
-                  <h3 className="text-white font-bold text-xl md:text-2xl mb-2 group-hover:text-yellow-100 transition-colors duration-300">
+                <div className="text-center py-2 sm:py-3">
+                  <h3 className="text-white font-bold text-base sm:text-lg md:text-xl lg:text-2xl mb-1 group-hover:text-yellow-100 transition-colors duration-300">
                     Tanay Maheshwari
                   </h3>
-                  <p className="text-white/90 text-sm md:text-base font-medium group-hover:text-white transition-colors duration-300">
+                  <p className="text-white/90 text-xs sm:text-sm md:text-base font-medium group-hover:text-white transition-colors duration-300">
                     FIDE ID: 88149692
                   </p>
-                  {/* <p className="text-white/90 text-sm md:text-base font-medium group-hover:text-white transition-colors duration-300">
-                    Olympiad Team
-                  </p> */}
-
-                  {/* Click indicator */}
-                  {/* <div className="mt-3 flex items-center justify-center space-x-2 opacity-75 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="text-white/80 text-xs font-medium uppercase tracking-wide">
-                      Click to learn more
-                    </span>
-                    <div className="w-4 h-4 border-2 border-white/60 rounded-full flex items-center justify-center">
-                      <div className="w-1.5 h-1.5 bg-white/80 rounded-full transform group-hover:scale-150 transition-transform duration-300"></div>
-                    </div>
-                  </div> */}
                 </div>
 
                 {/* Decorative chess piece accent */}
-                <div className="absolute -top-2 -right-2 text-3xl text-white/20 group-hover:text-white/30 group-hover:scale-110 transition-all duration-300">
+                <div className="absolute -top-1 sm:-top-2 -right-1 sm:-right-2 text-xl sm:text-2xl md:text-3xl text-white/20 group-hover:text-white/30 group-hover:scale-110 transition-all duration-300">
                   ♚
                 </div>
 
                 {/* Subtle animated background effect */}
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                <div className="absolute inset-0 rounded-lg sm:rounded-xl bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+              </button>
+            </AnimatedDiv>
+          </div>
+
+          {/* Text content - shows second on mobile */}
+          <div className="relative z-10 animate-slide-left text-center md:text-left order-2 md:order-1 mt-12 md:mt-0">
+            <AnimatedDiv delay={0.2}>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight mb-4 sm:mb-6">
+                <span className="block">Empowering young</span>
+                <span className="block">minds through the</span>
+                <span className="block">
+                  <InfiniteTypewriter
+                    texts={[
+                      "art of chess!",
+                      "game of strategy!",
+                      "joy of learning!",
+                    ]}
+                    delay={0.5}
+                    speed={80}
+                    className="text-yellow-600"
+                  />
+                </span>
+              </h1>
+            </AnimatedDiv>
+
+            <AnimatedDiv delay={0.4}>
+              <div className="hidden md:block space-y-2 mb-6 sm:mb-8">
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed">
+                  Welcome to a place where children don't just learn chess —
+                  Whether your child is a curious beginner or an aspiring
+                  tournament player, we guide them every step of the way with
+                  passion and purpose.
+                </p>
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-900 font-semibold">
+                  They learn to think.
+                </p>
+              </div>
+            </AnimatedDiv>
+
+            <AnimatedDiv
+              delay={0.6}
+              className="flex justify-center md:justify-start"
+            >
+              <button
+                onClick={handleDemoClick}
+                className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-yellow-600 hover:bg-yellow-700 text-white font-bold rounded-full text-sm sm:text-base md:text-lg lg:text-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl animate-pulse-slow"
+              >
+                Book a Demo Class
               </button>
             </AnimatedDiv>
           </div>
